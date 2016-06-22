@@ -19,7 +19,8 @@
     "bootstrap": "^3.3.6"
   },
   "dependencies": {
-    "ng-bs-daterangepicker": "^0.0.5"
+    "ng-bs-daterangepicker": "^0.0.5",
+    "c3": "^0.4.11"
   },
   "private": true
 }

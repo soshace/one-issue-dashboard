@@ -5,19 +5,26 @@
     <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="bootstrap-daterangepicker/daterangepicker-bs3.css">
+    <link rel="stylesheet" href="c3/c3.min.css">
     <script src="jquery/dist/jquery.min.js"></script>
     <script src="moment/min/moment.min.js"></script>
     <script src="bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="d3/d3.min.js"></script>
+    <script src="c3/c3.js"></script>
     <script src="angular/angular.min.js"></script>
     <script src="ng-bs-daterangepicker/dist/ng-bs-daterangepicker.min.js"></script>
     <script src="js/dashboardApp/initApp.js"></script>
     <script src="js/dashboardApp/controllers/mainCtrl.js"></script>
     <script src="js/dashboardApp/services/ApiService.js"></script>
     <script src="js/dashboardApp/services/ConstantService.js"></script>
+    <script src="js/dashboardApp/services/GraphService.js"></script>
 </head>
 
 <body>
     <div ng-app="DashboardApp" ng-controller="mainCtrl">
+        <div class="panel panel-default" style="text-align:center;">
+        	<div id="pieChart" class="c3"></div>
+        </div>
         <div class="panel panel-default" style="margin-top: 20px; width: 40%;">
             <div class="panel-heading" style="font-weight: bold;">Issue Date</div>
             <div class="panel-body">
