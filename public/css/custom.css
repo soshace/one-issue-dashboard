@@ -1,0 +1,27 @@
+.customMultipleSelect {
+    min-height: 200px;
+    padding: 0;
+}
+
+.customMultipleSelect option {
+    margin: 2.5px 7px 2.5px 7px;
+    border: 1px solid #000;
+    border-radius: 3px;
+    background-color: #c1c1c1;
+}
+
+.customMultipleSelect option:checked {
+    background: linear-gradient(#b22600, #fc5732);
+    -webkit-text-fill-color: #fff;
+}
+
+.customMultipleSelect option:hover {
+    background: linear-gradient(#f9e888, #fff);
+    -webkit-text-fill-color: #000;
+}
+
+.filterPanel {
+    display: inline-block;
+    width: 15%;
+    margin-left: 20px;
+}

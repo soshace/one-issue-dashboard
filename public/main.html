@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <title>OneIssue-Dashboard</title>
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="bootstrap-daterangepicker/daterangepicker-bs3.css">
+    <script src="jquery/dist/jquery.min.js"></script>
+    <script src="moment/min/moment.min.js"></script>
+    <script src="bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="angular/angular.min.js"></script>
+    <script src="ng-bs-daterangepicker/dist/ng-bs-daterangepicker.min.js"></script>
+    <script src="js/dashboardApp/initApp.js"></script>
+    <script src="js/dashboardApp/controllers/mainCtrl.js"></script>
+    <script src="js/dashboardApp/services/ApiService.js"></script>
+    <script src="js/dashboardApp/services/ConstantService.js"></script>
+</head>
+
+<body>
+    <div ng-app="DashboardApp" ng-controller="mainCtrl">
+        <div class="panel panel-default" style="margin-top: 20px; width: 40%;">
+            <div class="panel-heading" style="font-weight: bold;">Issue Date</div>
+            <div class="panel-body">
+                <input type="daterange" ng-model="issueDate" ng-change="handleFilterChange(selectedFilters, issueDate)">
+            </div>
+        </div>
+        <div class="panel panel-default" style="margin-top: 20px;">
+            <div class="panel-heading" style="font-weight: bold;">Filters</div>
+            <div class="panel-body">
+                <div class="panel panel-success filterPanel" ng-repeat="filter in filterMapping">
+                    <div class="panel-heading" style="font-weight: bold;">{{filter.name}}</div>
+                    <div class="panel-body">
+                        <select class="form-control customMultipleSelect" multiple ng-multiple="true" ng-model="selectedFilters[filter.prop]" ng-options="filter for filter in filters[filter.prop]" ng-change="handleFilterChange(selectedFilters, issueDate)"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
