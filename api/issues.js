@@ -1,5 +1,6 @@
 var nano = require('nano')('https://ivan:dashboard@one-issue.cloudant.com/oi_clean');
 var selectAttributes = ['Loc1Name', 'IssueTypeName', 'FormUsed'];
+var dateFilterProperty = 'opened_date';
 
 /**
  * Selects only attributes that are set in select array from the document.
@@ -31,9 +32,21 @@ function ApplyFilter(record, filter) {
     return true;
 }
 
+function FilterByDate(startOn, endOn, targetDate) {
+	
+    // Added to prevent invalid date error.
+	var datePart = targetDate.split(' ')[0].split('/');
+	var date = new Date(Number(datePart[2]), Number(datePart[1]) - 1, Number(datePart[0]));
+
+    var start = new Date(startOn);
+    var end = new Date(endOn);
+
+    return date >= start && date <= end;
+}
+
 module.exports = function(api) {
 
-	// Returns possible values for filtering.
+    // Returns possible values for filtering.
     api.route('/issues/filter/values').post(function(req, res) {
         var filters = req.body;
 
@@ -59,12 +72,13 @@ module.exports = function(api) {
 
     // Returns filtered sequence of documents.
     api.route('/issues/filter').post(function(req, res) {
-        var filterValues = req.body;
+        var filterValues = req.body.filter;
+        var date = req.body.date;
 
         var result = [];
         nano.view('oi', 'issues', function(err, body) {
             body.rows.map(doc => {
-                if (ApplyFilter(doc.value, filterValues)) {
+                if (ApplyFilter(doc.value, filterValues) && FilterByDate(date.startDate, date.endDate, doc.value[dateFilterProperty])) {
                     result.push(SelectAttributes(doc.value));
                 }
             });
@@ -75,13 +89,14 @@ module.exports = function(api) {
 
     // Returns aggregated by select parameters result sequence.
     api.route('/issues/filter/aggregate').post(function(req, res) {
-        var filterValues = req.body;
+        var filterValues = req.body.filter;
+        var date = req.body.date;
 
         var selectedValues = [];
         var result = {};
         nano.view('oi', 'issues', function(err, body) {
             body.rows.map(doc => {
-                if (ApplyFilter(doc.value, filterValues)) {
+                if (ApplyFilter(doc.value, filterValues) && FilterByDate(date.startDate, date.endDate, doc.value[dateFilterProperty])) {
                     selectedValues.push(SelectAttributes(doc.value));
                 }
             });

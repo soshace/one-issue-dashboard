@@ -1,0 +1,25 @@
+{
+  "name": "one-issue-dashboard",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "Stepan Zharychev"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "resolutions": {
+    "jquery": "^3.0.0",
+    "bootstrap": "^3.3.6"
+  },
+  "dependencies": {
+    "ng-bs-daterangepicker": "^0.0.5"
+  },
+  "private": true
+}
