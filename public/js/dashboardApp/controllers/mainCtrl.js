@@ -1,4 +1,4 @@
-angular.module('DashboardApp').controller('mainCtrl', ['$scope', 'ApiService', 'ConstantService', function($scope, api, constants) {
+angular.module('DashboardApp').controller('mainCtrl', ['$scope', 'ApiService', 'ConstantService', 'GraphService', function($scope, api, constants, graphic) {
     function initPage() {
         var filterProps = constants.defaultFilterCategories.map(category => category.prop);
 
@@ -8,6 +8,10 @@ angular.module('DashboardApp').controller('mainCtrl', ['$scope', 'ApiService', '
         api.GetFiltersContent(filterProps, function(filterValues) {
             $scope.filters = filterValues;
             $scope.selectedFilters = angular.copy(filterValues);
+
+            api.GetIssuesAggregation(filterValues, $scope.issueDate, function(issues) {
+                updateGraphics(issues);
+            })
         });
     };
 
@@ -20,9 +24,13 @@ angular.module('DashboardApp').controller('mainCtrl', ['$scope', 'ApiService', '
         };
     }
 
+    function updateGraphics(issues) {
+        graphic.drawPieChart('#pieChart', issues['FormUsed']);
+    }
+
     $scope.handleFilterChange = function(filters, date) {
         api.GetIssuesAggregation(filters, date, function(issues) {
-            console.log(issues);
+            updateGraphics(issues);
         })
     }
 
