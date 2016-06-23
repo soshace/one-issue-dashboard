@@ -31,10 +31,10 @@
             <div ng-show="!filterHasResults">
                 <h1>There are no issues found.</h1></div>
         </div>
-        <div class="panel panel-default" style="margin-top: 20px; width: 40%;">
+        <div class="panel panel-default" style="margin-top: 20px; width: 40%;float: none;margin: 0 auto;">
             <div class="panel-heading" style="font-weight: bold;">Issue Date</div>
             <div class="panel-body">
-                <input type="daterange" ng-model="issueDate" ng-change="handleFilterChange(selectedFilters, issueDate)">
+                <input readonly type="daterange" ng-model="issueDate" ng-change="handleFilterChange(selectedFilters, issueDate)" style="width:80%; text-align: center;">
             </div>
         </div>
         <div class="panel panel-default" style="margin-top: 20px;">
