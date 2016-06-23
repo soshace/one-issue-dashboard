@@ -3,6 +3,7 @@ angular.module('DashboardApp').controller('mainCtrl', ['$scope', 'ApiService', '
         var filterProps = constants.defaultFilterCategories.map(category => category.prop);
 
         $scope.filterMapping = angular.copy(constants.defaultFilterCategories);
+        $scope.filterHasResults = true;
         setDefaultDates();
 
         api.GetFiltersContent(filterProps, function(filterValues) {
@@ -26,11 +27,21 @@ angular.module('DashboardApp').controller('mainCtrl', ['$scope', 'ApiService', '
 
     function updateGraphics(issues) {
         graphic.drawPieChart('#pieChart', issues['FormUsed']);
+        graphic.drawBarChart('#barChartLocation', issues['Loc1Name']);
+        graphic.drawBarChart('#barChartIssueType', issues['IssueTypeName']);
     }
 
     $scope.handleFilterChange = function(filters, date) {
         api.GetIssuesAggregation(filters, date, function(issues) {
-            updateGraphics(issues);
+            var hasResults = Object.getOwnPropertyNames(issues).length > 0;
+
+            $scope.filterHasResults = hasResults;
+            if (hasResults) {
+                // Added to prevent unexpected changing of chart's width after drawing.
+                setTimeout(function() {
+                    updateGraphics(issues);
+                }, 500);
+            }
         })
     }
 

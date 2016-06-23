@@ -23,7 +23,13 @@
 <body>
     <div ng-app="DashboardApp" ng-controller="mainCtrl">
         <div class="panel panel-default" style="text-align:center;">
-        	<div id="pieChart" class="c3"></div>
+            <div ng-show="filterHasResults">
+                <div id="barChartLocation" class="chart"></div>
+                <div id="barChartIssueType" class="chart"></div>
+                <div id="pieChart" class="c3" class="chart"></div>
+            </div>
+            <div ng-show="!filterHasResults">
+                <h1>There are no issues found.</h1></div>
         </div>
         <div class="panel panel-default" style="margin-top: 20px; width: 40%;">
             <div class="panel-heading" style="font-weight: bold;">Issue Date</div>
