@@ -62,6 +62,9 @@ angular.module('DashboardApp').controller('mainCtrl', ['$scope', 'ApiService', '
         })
     };
 
+    /**
+    * Scrolls to page top using JQuery.
+    */
     $scope.scrollTop = function() {
         jquery.animateScrollOnTop(300);
     };

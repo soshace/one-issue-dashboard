@@ -1,4 +1,11 @@
 angular.module('DashboardApp').service('GraphService', function() {
+    
+    /**
+    * Draws Pie Chart.
+    * @param {string} selector Selector for chart container.
+    * @param {object} data Data for showing on chart.
+    * @param {string} title Chart's title.
+    */
     this.drawPieChart = function(selector, data, title) {
         var formattedData = [];
         for (var value in data) {
@@ -24,6 +31,12 @@ angular.module('DashboardApp').service('GraphService', function() {
         });
     };
 
+    /**
+    * Draws Bar Chart.
+    * @param {string} selector Selector for chart container.
+    * @param {object} data Data for showing on chart.
+    * @param {string} title Chart's title.
+    */
     this.drawBarChart = function(selector, data, title) {
         var formattedData = [];
         for (var value in data) {

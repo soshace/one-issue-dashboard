@@ -11,6 +11,12 @@ angular.module('DashboardApp').service('ApiService', ['$http', function(http) {
         })
     };
 
+    /**
+    * Gets aggregation of issue search result with filters.
+    * @param {object} filters Filters for issue selection.
+    * @param {object} date Date for issue selection
+    * @param {function} callback Callback function for returning of result.
+    */
     this.GetIssuesAggregation = function(filters, date, callback) {
         var filterObj = {
         	filter: filters,
