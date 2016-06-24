@@ -11,8 +11,8 @@
 }
 
 .customMultipleSelect option:checked {
-    background: linear-gradient(#b22600, #fc5732);
-    -webkit-text-fill-color: #fff;
+    background: linear-gradient(#88ff00, #b2ff5b);
+    -webkit-text-fill-color: #006600;
 }
 
 .customMultipleSelect option:hover {
@@ -29,4 +29,13 @@
 .chart {
     width: 60%;
     display: inline-block;
+}
+
+text.c3-title {
+	font-size: 18px;
+}
+
+.panel-default > .panel-oi {
+	background-color: #006600;
+	color: #fff;
 }

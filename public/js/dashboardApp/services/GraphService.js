@@ -1,5 +1,5 @@
 angular.module('DashboardApp').service('GraphService', function() {
-    this.drawPieChart = function(selector, data) {
+    this.drawPieChart = function(selector, data, title) {
         var formattedData = [];
         for (var value in data) {
             formattedData.push([value, data[value]]);
@@ -12,7 +12,7 @@ angular.module('DashboardApp').service('GraphService', function() {
                 type: 'pie'
             },
             title: {
-                text: 'Issue by Status'
+                text: title
             },
             pie: {
                 label: {
@@ -24,7 +24,7 @@ angular.module('DashboardApp').service('GraphService', function() {
         });
     };
 
-    this.drawBarChart = function(selector, data) {
+    this.drawBarChart = function(selector, data, title) {
         var formattedData = [];
         for (var value in data) {
             formattedData.push([value, data[value]]);
@@ -37,7 +37,7 @@ angular.module('DashboardApp').service('GraphService', function() {
                 type: 'bar'
             },
             title: {
-                text: 'Issue by Status'
+                text: title
             },
             bar: {
                 label: {

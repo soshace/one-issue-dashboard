@@ -1,4 +1,4 @@
-angular.module('DashboardApp').controller('mainCtrl', ['$scope', 'ApiService', 'ConstantService', 'GraphService', function($scope, api, constants, graphic) {
+angular.module('DashboardApp').controller('mainCtrl', ['$scope', 'ApiService', 'ConstantService', 'GraphService', '$window', function($scope, api, constants, graphic, $window) {
     function initPage() {
         var filterProps = constants.defaultFilterCategories.map(category => category.prop);
 
@@ -26,9 +26,9 @@ angular.module('DashboardApp').controller('mainCtrl', ['$scope', 'ApiService', '
     }
 
     function updateGraphics(issues) {
-        graphic.drawPieChart('#pieChart', issues['FormUsed']);
-        graphic.drawBarChart('#barChartLocation', issues['Loc1Name']);
-        graphic.drawBarChart('#barChartIssueType', issues['IssueTypeName']);
+        graphic.drawPieChart('#pieChart', issues['FormUsed'], 'Issues By Status');
+        graphic.drawBarChart('#barChartLocation', issues['Loc1Name'], 'Issues by Location');
+        graphic.drawBarChart('#barChartIssueType', issues['IssueTypeName'], 'Issues by Types');
     }
 
     $scope.handleFilterChange = function(filters, date) {
@@ -42,6 +42,7 @@ angular.module('DashboardApp').controller('mainCtrl', ['$scope', 'ApiService', '
                     updateGraphics(issues);
                 }, 500);
             }
+            $window.scrollTo(0, 0);
         })
     }
 

@@ -22,7 +22,7 @@
 
 <body>
     <div ng-app="DashboardApp" ng-controller="mainCtrl">
-        <div class="panel panel-default" style="text-align:center;">
+        <div class="panel panel-default" style="text-align:center;border-color: #006600;">
             <div ng-show="filterHasResults">
                 <div id="barChartLocation" class="chart"></div>
                 <div id="barChartIssueType" class="chart"></div>
@@ -31,14 +31,14 @@
             <div ng-show="!filterHasResults">
                 <h1>There are no issues found.</h1></div>
         </div>
-        <div class="panel panel-default" style="margin-top: 20px; width: 40%;float: none;margin: 0 auto;">
-            <div class="panel-heading" style="font-weight: bold;">Issue Date</div>
+        <div class="panel panel-default" style="margin-top: 20px; width: 40%;float: none;margin: 0 auto; border-color: #006600;">
+            <div class="panel-oi panel-heading" style="font-weight: bold;">Issue Date</div>
             <div class="panel-body">
                 <input readonly type="daterange" ng-model="issueDate" ng-change="handleFilterChange(selectedFilters, issueDate)" style="width:80%; text-align: center;">
             </div>
         </div>
-        <div class="panel panel-default" style="margin-top: 20px;">
-            <div class="panel-heading" style="font-weight: bold;">Filters</div>
+        <div class="panel panel-default" style="margin-top: 20px; border-color: #006600;">
+            <div class="panel-oi panel-heading" style="font-weight: bold;">Filters</div>
             <div class="panel-body">
                 <div class="panel panel-success filterPanel" ng-repeat="filter in filterMapping">
                     <div class="panel-heading" style="font-weight: bold;">{{filter.name}}</div>
