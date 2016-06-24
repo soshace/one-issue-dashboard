@@ -28,12 +28,12 @@
             <i class="fa fa-arrow-circle-up"></i>
         </a>
         <div class="panel panel-default" style="text-align:center;border-color: #006600;">
-            <div ng-show="filterHasResults">
+            <div ng-if="filterHasResults" style="min-height: 960px;">
                 <div id="barChartLocation" class="chart"></div>
                 <div id="barChartIssueType" class="chart"></div>
                 <div id="pieChart" class="c3" class="chart"></div>
             </div>
-            <div ng-show="!filterHasResults">
+            <div ng-if="!filterHasResults">
                 <h1>There are no issues found.</h1></div>
         </div>
         <div class="panel panel-default" style="margin-top: 20px; width: 40%;float: none;margin: 0 auto; border-color: #006600;">
