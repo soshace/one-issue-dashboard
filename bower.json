@@ -20,7 +20,8 @@
   },
   "dependencies": {
     "ng-bs-daterangepicker": "^0.0.5",
-    "c3": "^0.4.11"
+    "c3": "^0.4.11",
+    "font-awesome": "^4.6.3"
   },
   "private": true
 }

@@ -7,12 +7,12 @@
     margin: 2.5px 7px 2.5px 7px;
     border: 1px solid #000;
     border-radius: 3px;
-    background-color: #c1c1c1;
+    background-color: #cecccc;
 }
 
 .customMultipleSelect option:checked {
-    background: linear-gradient(#88ff00, #b2ff5b);
-    -webkit-text-fill-color: #006600;
+    background: linear-gradient(#7688A9, #4D648D);
+    -webkit-text-fill-color: #fff;
 }
 
 .customMultipleSelect option:hover {
@@ -32,10 +32,36 @@
 }
 
 text.c3-title {
-	font-size: 18px;
+    font-size: 18px;
 }
 
 .panel-default > .panel-oi {
-	background-color: #006600;
-	color: #fff;
+    background-color: #006600;
+    color: #fff;
+}
+
+.back-to-top {
+    background: none;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    display: inline;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #9b9b9b;
+    opacity: 0.5;
+}
+
+.back-to-top i {
+    font-size: 35px;
+    margin-left: 15px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.back-to-top:hover {
+    opacity: 0.8;
 }

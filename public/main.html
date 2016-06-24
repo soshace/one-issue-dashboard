@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="bootstrap-daterangepicker/daterangepicker-bs3.css">
     <link rel="stylesheet" href="c3/c3.min.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
     <script src="jquery/dist/jquery.min.js"></script>
     <script src="moment/min/moment.min.js"></script>
     <script src="bootstrap-daterangepicker/daterangepicker.js"></script>
@@ -18,10 +19,14 @@
     <script src="js/dashboardApp/services/ApiService.js"></script>
     <script src="js/dashboardApp/services/ConstantService.js"></script>
     <script src="js/dashboardApp/services/GraphService.js"></script>
+        <script src="js/dashboardApp/services/JqueryService.js"></script>
 </head>
 
 <body>
     <div ng-app="DashboardApp" ng-controller="mainCtrl">
+        <a class="back-to-top" style="display: none;" ng-click="scrollTop()">
+            <i class="fa fa-arrow-circle-up"></i>
+        </a>
         <div class="panel panel-default" style="text-align:center;border-color: #006600;">
             <div ng-show="filterHasResults">
                 <div id="barChartLocation" class="chart"></div>
@@ -34,7 +39,7 @@
         <div class="panel panel-default" style="margin-top: 20px; width: 40%;float: none;margin: 0 auto; border-color: #006600;">
             <div class="panel-oi panel-heading" style="font-weight: bold;">Issue Date</div>
             <div class="panel-body">
-                <input readonly type="daterange" ng-model="issueDate" ng-change="handleFilterChange(selectedFilters, issueDate)" style="width:80%; text-align: center;">
+                <input readonly type="daterange" ng-model="issueDate" ng-change="handleFilterChange(selectedFilters, issueDate)" style="width:100%; text-align: center;">
             </div>
         </div>
         <div class="panel panel-default" style="margin-top: 20px; border-color: #006600;">
