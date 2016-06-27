@@ -22,7 +22,7 @@
 
 .filterPanel {
     display: inline-block;
-    max-width: 15%;
+    width: 15%;
     margin-left: 20px;
 }
 
