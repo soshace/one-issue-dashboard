@@ -22,12 +22,12 @@
 
 .filterPanel {
     display: inline-block;
-    width: 30%;
+    max-width: 15%;
     margin-left: 20px;
 }
 
 .chart {
-    width: 60%;
+    width: 30%;
     display: inline-block;
 }
 

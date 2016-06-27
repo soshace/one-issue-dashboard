@@ -19,7 +19,7 @@
     <script src="js/dashboardApp/services/ApiService.js"></script>
     <script src="js/dashboardApp/services/ConstantService.js"></script>
     <script src="js/dashboardApp/services/GraphService.js"></script>
-        <script src="js/dashboardApp/services/JqueryService.js"></script>
+    <script src="js/dashboardApp/services/JqueryService.js"></script>
 </head>
 
 <body>
@@ -28,19 +28,13 @@
             <i class="fa fa-arrow-circle-up"></i>
         </a>
         <div class="panel panel-default" style="text-align:center;border-color: #006600;">
-            <div ng-if="filterHasResults" style="min-height: 960px;">
+            <div ng-if="filterHasResults" style="min-height: 325px;">
                 <div id="barChartLocation" class="chart"></div>
                 <div id="barChartIssueType" class="chart"></div>
-                <div id="pieChart" class="c3" class="chart"></div>
+                <div id="pieChart" class="chart"></div>
             </div>
             <div ng-if="!filterHasResults">
                 <h1>There are no issues found.</h1></div>
-        </div>
-        <div class="panel panel-default" style="margin-top: 20px; width: 40%;float: none;margin: 0 auto; border-color: #006600;">
-            <div class="panel-oi panel-heading" style="font-weight: bold;">Issue Date</div>
-            <div class="panel-body">
-                <input readonly type="daterange" ng-model="issueDate" ng-change="handleFilterChange(selectedFilters, issueDate)" style="width:100%; text-align: center;">
-            </div>
         </div>
         <div class="panel panel-default" style="margin-top: 20px; border-color: #006600;">
             <div class="panel-oi panel-heading" style="font-weight: bold;">Filters</div>
@@ -51,6 +45,12 @@
                         <select class="form-control customMultipleSelect" multiple ng-multiple="true" ng-model="selectedFilters[filter.prop]" ng-options="filter for filter in filters[filter.prop]" ng-change="handleFilterChange(selectedFilters, issueDate)"></select>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="panel panel-default" style="margin-top: 20px; width: 40%;float: none;margin: 0 auto; border-color: #006600;">
+            <div class="panel-oi panel-heading" style="font-weight: bold;">Issue Date</div>
+            <div class="panel-body">
+                <input readonly type="daterange" ng-model="issueDate" ng-change="handleFilterChange(selectedFilters, issueDate)" style="width:100%; text-align: center;">
             </div>
         </div>
     </div>
